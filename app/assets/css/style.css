@@ -1,0 +1,31 @@
+.directory{
+    padding-left: 15px;
+}
+#icon{
+    width: 100%;
+}
+#logo{
+    padding: 5px;
+}
+.display-4{
+    font-size: 4.5rem;
+}
+#aboutYou{
+    display: block;
+    margin-top: 3rem;
+}
+.questions{
+    display: block;
+    margin-top: 2rem;
+}
+.container{
+    margin-top: 1rem;
+}
+.custom-select{
+    display: block;
+    width: 15%;
+}
+label{
+    font-size: 1.2rem;
+    font-weight: 400;
+}
