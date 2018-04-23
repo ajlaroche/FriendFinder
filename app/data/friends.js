@@ -1,22 +1,21 @@
-$(document).ready(function () {
     var userProfile = {};
     var answers = [];
     var compareResult = [];
     var totalDifference = 0;
     var bestFriend = {};
 
-    $("#submitButton").on("click", function () {
-        userProfile.name = $("#name").val().trim();
-        userProfile.foto = $("#fotoLink").val().trim();
-        for (var i = 0; i < 10; i++) {
-            var question = "#answerOptions" + (i + 1);
-            answers[i] = $(question).val();
-            // console.log(question);
-        }
-        userProfile.scores = answers;
-        console.log(userProfile);
-        bestFriendTest();
-    })
+    // $("#submitButton").on("click", function () {
+    //     userProfile.name = $("#name").val().trim();
+    //     userProfile.foto = $("#fotoLink").val().trim();
+    //     for (var i = 0; i < 10; i++) {
+    //         var question = "#answerOptions" + (i + 1);
+    //         answers[i] = $(question).val();
+    //         // console.log(question);
+    //     }
+    //     userProfile.scores = answers;
+    //     console.log(userProfile);
+    //     bestFriendTest();
+    // })
 
 
     var friends = [{
@@ -78,4 +77,5 @@ $(document).ready(function () {
         $("#friendModal").modal();
                 
     };
-})
+
+    module.exports = friends;

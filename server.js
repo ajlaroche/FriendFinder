@@ -1,22 +1,23 @@
 var express = require("express");
 var bodyParser = require("body-parser");
 var path = require("path");
-// var routes = require("./app/routing/htmlRoutes");
+var routes = require("./app/routing/htmlRoutes");
+var apiRoutes = require("./app/routing/apiRoutes");
+
 
 var app = express();
+// var appAPI =express();
 var PORT = 3000;
 
 // Sets up the Express app to handle data parsing
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-app.get("/survey", function (req, res) {
-    res.sendFile(path.join(__dirname, "./app/public/survey.html"));
-});
 
-app.get("/", function (req, res) {
-    res.sendFile(path.join(__dirname, "./app/public/home.html"));
-});
+app.use("/",routes);
+app.use("/api",apiRoutes);
+
+// appAPI.use("/api/friends",apiRoutes);
 
 
 app.listen(PORT, function () {

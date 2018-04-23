@@ -1,10 +1,25 @@
-// var express = require("express");
+var express = require("express");
+var bodyParser = require("body-parser");
+var path = require("path");
+var friends = require("../data/friends");
+// var apiRoutes = require("./apiRoutes");
 
-// module.exports = {
-//     survey: function (req, res) {
-//         res.sendFile(path.join(__dirname, "survey.html"));
-//     },
-//     home: function (req, res) {
-//         res.sendFile(path.join(__dirname, "home.html"));
-//     }
-// }
+var app = express();
+var router = express.Router();
+
+// router.use("/api/",apiRoutes);
+
+router.get("/", function (req, res) {
+    res.sendFile(path.join(__dirname,"..","/public/home.html"));
+});
+
+router.get("/survey", function (req, res) {
+    res.sendFile(path.join(__dirname,"..","/public/survey.html"));
+});
+
+// router.get("/api/friends", function (req, res) {
+//     return   res.json(friends);
+//    });
+
+module.exports = router;
+
