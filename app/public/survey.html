@@ -167,7 +167,7 @@
                     <p>
                         <span id="friendResult">
                     </p>
-                    <img src="" id="modalImage" alt="photo of best friend">
+                    <img src="" id="modalImage" alt="photo of best friend" width="100%">
                 </div>
                 <div class="modal-footer">
                     <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
@@ -195,15 +195,19 @@
             for (var i = 0; i < 10; i++) {
                 var question = "#answerOptions" + (i + 1);
                 answers[i] = $(question).val();
-           
+
             };
             userProfile.scores = answers;
-  
+
             $.post("/api/friends", userProfile, function (bestFriend) {
                 console.log(bestFriend);
                 $("#friendResult").text(bestFriend.name);
                 $("#modalImage").attr("src", bestFriend.foto);
                 $("#friendModal").modal();
+                
+            });
+            $('#friendModal').on('hidden.bs.modal', function () {
+                location.reload();
             });
         });
 
