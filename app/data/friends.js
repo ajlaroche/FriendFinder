@@ -27,7 +27,7 @@
     },
     {
         name: "Peggy Bundy",
-        foto: "http://marriedwithchildren.wikia.com/wiki/Peg_Bundy",
+        foto: "https://vignette.wikia.nocookie.net/marriedwithchildren/images/5/53/Peg.jpg/revision/latest?cb=20140525171942",
         scores: [3, 2, 4, 5, 1, 3, 5, 1, 3, 3]
     }
     ];
