@@ -21,8 +21,8 @@
         scores: [1, 5, 2, 5, 4, 3, 2, 1, 3, 3]
     },
     {
-        name: "Molly Sue",
-        foto: "www.google.com/images/cat.jpg",
+        name: "Pam Beesly",
+        foto: "http://images.buddytv.com/btv_2_500261069_0_350_10000_-1_/jenna-fischer.jpg",
         scores: [5, 5, 3, 1, 2, 4, 3, 1, 5, 5]
     },
     {

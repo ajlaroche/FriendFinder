@@ -8,7 +8,7 @@ module.exports = function (app) {
     });
 
     app.post("/api/friends", function (req, res) {
-        console.log(req.body);
+        // console.log(req.body);
         res.json(bestFriendTest(req.body));
     })
 };
@@ -29,8 +29,8 @@ function bestFriendTest(userProfile) {
         compareResult.push(totalDifference);
     };
 
-    console.log(compareResult);
-    console.log(Math.max(...compareResult));
+    // console.log(compareResult);
+    // console.log(Math.max(...compareResult));
 
     function findMax(result) {
         return result === Math.max(...compareResult);
