@@ -148,32 +148,35 @@
                 <option value="5">5 (strongly agree</option>
             </select>
         </div>
-        <button type="button" id="submitButton" class="btn btn-primary btn-lg btn-block"><span class="oi oi-circle-check"></span> Submit</button>
+        <button type="button" id="submitButton" class="btn btn-primary btn-lg btn-block">
+            <span class="oi oi-circle-check"></span> Submit</button>
 
     </div>
 
-      <!--Modal-->
-      <div class="modal fade" id="friendModal" tabindex="-1" role="dialog">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title">Your closest friend</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <p><span id="friendResult"></p>
-                            <img src="" id="modalImage" alt="photo of best friend">
-                    </div>
-                    <div class="modal-footer">
-                        <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    </div>
+    <!--Modal-->
+    <div class="modal fade" id="friendModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Your closest friend</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        <span id="friendResult">
+                    </p>
+                    <img src="" id="modalImage" alt="photo of best friend">
+                </div>
+                <div class="modal-footer">
+                    <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>
-        <!--End Modal-->
+    </div>
+    <!--End Modal-->
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -181,7 +184,33 @@
         crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
         crossorigin="anonymous"></script>
-    <script src="../data/friends.js"></script>
+    <!-- <script src="../data/friends.js"></script> -->
+    <script type="text/javascript">
+
+        $("#submitButton").on("click", function () {
+            var userProfile = {};
+            var answers = [];
+            userProfile.name = $("#name").val().trim();
+            userProfile.foto = $("#fotoLink").val().trim();
+            for (var i = 0; i < 10; i++) {
+                var question = "#answerOptions" + (i + 1);
+                answers[i] = $(question).val();
+           
+            };
+            userProfile.scores = answers;
+  
+            $.post("/api/friends", userProfile, function (bestFriend) {
+                console.log(bestFriend);
+                $("#friendResult").text(bestFriend.name);
+                $("#modalImage").attr("src", bestFriend.foto);
+                $("#friendModal").modal();
+            });
+        });
+
+
+
+
+    </script>
 </body>
 
 </html>

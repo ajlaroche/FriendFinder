@@ -1,26 +1,8 @@
-    var userProfile = {};
-    var answers = [];
-    var compareResult = [];
-    var totalDifference = 0;
-    var bestFriend = {};
-
-    // $("#submitButton").on("click", function () {
-    //     userProfile.name = $("#name").val().trim();
-    //     userProfile.foto = $("#fotoLink").val().trim();
-    //     for (var i = 0; i < 10; i++) {
-    //         var question = "#answerOptions" + (i + 1);
-    //         answers[i] = $(question).val();
-    //         // console.log(question);
-    //     }
-    //     userProfile.scores = answers;
-    //     console.log(userProfile);
-    //     bestFriendTest();
-    // })
 
 
     var friends = [{
         name: "Al Bundy",
-        foto: "http://www.kiwireport.com/29-facts-will-totally-surprise-married-children/",
+        foto: "https://img.maximummedia.ie/joe_ie/eyJkYXRhIjoie1widXJsXCI6XCJodHRwOlxcXC9cXFwvbWVkaWEtam9lLm1heGltdW1tZWRpYS5pZS5zMy5hbWF6b25hd3MuY29tXFxcL3dwLWNvbnRlbnRcXFwvdXBsb2Fkc1xcXC8yMDE1XFxcLzA2XFxcLzE4MTY1NDA1XFxcL0FsLUJ1bmR5LmpwZ1wiLFwid2lkdGhcIjo3NjcsXCJoZWlnaHRcIjo0MzEsXCJkZWZhdWx0XCI6XCJodHRwczpcXFwvXFxcL3d3dy5qb2UuaWVcXFwvYXNzZXRzXFxcL2ltYWdlc1xcXC9qb2VcXFwvbm8taW1hZ2UucG5nP3Y9NVwifSIsImhhc2giOiI3YmY1ZmRhMGYwNjUyYzkxYWQxNjQ4ZjZhNGJiNzA5NzE0MDJlMDRiIn0=/al-bundy.jpg",
         scores: [3, 2, 4, 2, 4, 2, 1, 5, 2, 5]
     },
     {
@@ -50,32 +32,5 @@
     }
     ];
 
-    function bestFriendTest() {
-        for (var i = 0; i < friends.length; i++) {
-            var compCalc = [];
-            totalDifference = 0;
-            for (var j = 0; j < 10; j++) {
-                compCalc[j] = Math.abs(userProfile.scores[j] - friends[i].scores[j]);
-                totalDifference += compCalc[j];
-            }
-            compareResult.push(totalDifference);
-        };
-
-        console.log(compareResult);
-        console.log(Math.max(...compareResult));
-
-        function findMax(result) {
-            return result === Math.max(...compareResult);
-        }
-
-        
-        bestFriend = friends[compareResult.findIndex(findMax)];
-
-        console.log(bestFriend);
-        $("#friendResult").text(bestFriend.name);
-        $("#modalImage").attr("src",bestFriend.foto);
-        $("#friendModal").modal();
-                
-    };
-
+   
     module.exports = friends;
